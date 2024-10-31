@@ -1,0 +1,53 @@
+@import '/src/index.scss';
+
+.container {
+  width: 100%;
+
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 430px;
+  overflow: hidden;
+  transition: var(--transition);
+
+  &_img {
+    object-fit: cover;
+    width: 100%;
+    height: 64%;
+  }
+
+  &_info {
+    height: fit-content;
+
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+
+    p {
+      font-size: 14px;
+    }
+
+    p,
+    span {
+      @extend .clamp;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      svg {
+        width: 16px;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 3px 0px #0000001a;
+  }
+}
