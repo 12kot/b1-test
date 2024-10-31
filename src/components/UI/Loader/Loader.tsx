@@ -13,7 +13,7 @@ export const Loader = ({ negative, center }: Props) => {
 
 const LoaderCenter = ({ negative }: Props) => {
   return (
-    <div className={`w-full h-full flex-center ` + styles.grid}>
+    <div className={styles.center}>
       <div className={`${styles.loader} ${negative && styles.negative}`} />
     </div>
   );
