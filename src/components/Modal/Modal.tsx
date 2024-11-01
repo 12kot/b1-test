@@ -21,7 +21,7 @@ export const Modal = ({ children, isOpen, setIsOpen, className }: Props) => {
     <div className={cx(styles.container, isOpen && 'active')} onClick={setIsOpen}>
       <div className={cx(styles.container_content, className)} onClick={(e) => e.stopPropagation()}>
         {children}
-        <img src={IMGmodalTiles} loading="lazy" className="top-0 left-0 absolute w-full z--1" />
+        <img src={IMGmodalTiles} loading="lazy" className={styles.container_content__bg} />
       </div>
     </div>
   );

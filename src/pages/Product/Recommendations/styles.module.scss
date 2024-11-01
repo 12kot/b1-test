@@ -1,0 +1,28 @@
+.container {
+  grid-area: 1 / 4 / 2 / 5;
+  padding: var(--padding);
+
+  border-left: 1px solid var(--border-color);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  overflow-y: auto;
+
+  &_list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__img {
+      border-radius: 16px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -95,6 +95,7 @@ h3 {
 }
 
 a {
+  color: var(--font-color);
   text-decoration: none;
   
   &:active, &:focus, &:visited {

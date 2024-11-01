@@ -1,6 +1,4 @@
-import { B, Button, H2, Span } from 'components';
-
-import { Card } from './Card';
+import { B, Button, H2, ProductCard, Span } from 'components';
 
 import styles from './styles.module.scss';
 
@@ -17,13 +15,11 @@ export const Content = () => {
         <Button buttonType="filter">Filter 7</Button>
       </section>
       <section className={styles.container_content}>
-        <div className={styles.container_path}>
-          <p>
-            <Span>
-              Main → <B>Catalog</B>
-            </Span>
-          </p>
-        </div>
+        <p>
+          <Span>
+            Main → <B>Catalog</B>
+          </Span>
+        </p>
 
         <H2>Catalog</H2>
 
@@ -31,7 +27,7 @@ export const Content = () => {
           {Array(15)
             .fill(null)
             .map((_, i) => (
-              <Card key={i} />
+              <ProductCard key={i} />
             ))}
         </div>
       </section>

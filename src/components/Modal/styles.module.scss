@@ -1,4 +1,4 @@
-@use "bg";
+@use 'bg';
 
 .container {
   display: flex;
@@ -18,6 +18,14 @@
     border-radius: 16px;
     border: 1px solid var(--border-color);
     transform: translateY(100px);
+
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+    }
 
     @media screen and (max-width: 440px) {
       max-height: 90vh;

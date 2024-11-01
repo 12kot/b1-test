@@ -6,12 +6,13 @@ import { Button, H3, Span } from 'components';
 import { SVGCart, SVGStar } from 'assets';
 
 import styles from './styles.module.scss';
+import { APP_ROUTES } from 'Router';
 
-export const Card = () => {
+export const ProductCard = () => {
   const { t } = useTranslation(['common']);
 
   return (
-    <NavLink to={''} className={styles.container}>
+    <NavLink to={`${APP_ROUTES.PRODUCT}/${1}`} className={styles.container}>
       <img
         loading="lazy"
         className={styles.container_img}

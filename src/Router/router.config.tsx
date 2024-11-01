@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Navigate } from "react-router-dom";
 
-import { HomeLazy } from "pages";
+import { HomeLazy, ProductLazy } from "pages";
 
 export enum EPermissions {
   AUTH_NOT_REQUIRED = "no_auth",
@@ -9,6 +9,7 @@ export enum EPermissions {
 
 export enum APP_ROUTES {
   HOME = "/",
+  PRODUCT = "/product",
   NOT_FOUND = "/404",
   ALL = "*",
 }
@@ -27,6 +28,11 @@ export type TRoutes = Record<string, IRoute>;
 export const routes: TRoutes = {
   [APP_ROUTES.HOME]: {
     element: <HomeLazy />,
+    permissions: [EPermissions.AUTH_NOT_REQUIRED],
+  },
+ 
+  [APP_ROUTES.PRODUCT + "/:id"]: {
+    element: <ProductLazy />,
     permissions: [EPermissions.AUTH_NOT_REQUIRED],
   },
 

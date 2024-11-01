@@ -1,9 +1,9 @@
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { H2 } from 'components';
 
 import styles from './styles.module.scss';
-import { NavLink } from 'react-router-dom';
 
 export const Banners = () => {
   const { t } = useTranslation(['common']);

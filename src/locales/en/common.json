@@ -1,9 +1,14 @@
 {
   "buttons": {
     "addToCart": "Add to cart"
-    
   },
 
-  "ourPromotions": "Our promotions"
-  
+  "ourPromotions": "Our promotions",
+  "recommendations": "Recommendations",
+
+  "rating": "({{value}} rated)",
+  "description": "Description",
+  "yourCart": "Your shopping cart",
+  "placeOrder": "Place an order",
+  "nItems": "{{value}} items"
 }

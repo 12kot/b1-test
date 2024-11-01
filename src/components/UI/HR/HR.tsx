@@ -1,12 +1,5 @@
-interface Props {
-  text?: string;
-}
+import styles from "./styles.module.scss";
 
-export const HR = ({ text }: Props) => {
-  return (
-    <div className="hr-container">
-      <p>{text}</p>
-      <hr />
-    </div>
-  );
+export const HR = () => {
+  return <hr className={styles.container} />;
 };
