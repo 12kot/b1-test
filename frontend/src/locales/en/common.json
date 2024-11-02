@@ -1,7 +1,9 @@
 {
   "buttons": {
     "addToCart": "Add to cart",
-    "removeFromCart": "Remove from cart"
+    "removeFromCart": "Remove from cart",
+    "done": "Done",
+    "cancel": "Cancel"
   },
 
   "ourPromotions": "Our promotions",
@@ -17,5 +19,7 @@
   "catalog": "Catalog",
 
   "price": "$ {{price}}",
-  "fullRating": "{{rate}} ({{count}}) • {{category}}"
+  "fullRating": "{{rate}} ({{count}}) • {{category}}",
+
+  "cartIsEmpty": "Your shopping cart is empty. Come back here when you replenish it"
 }

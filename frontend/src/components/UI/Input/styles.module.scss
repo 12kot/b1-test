@@ -1,0 +1,28 @@
+.container {
+  font-family: 'Exo', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--font-color);
+
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+
+  box-shadow: var(--box-shadow);
+
+  resize: none;
+  transition: var(--transition);
+
+  &:focus {
+    background-color: var(--bg-color-second);
+  }
+
+  &:disabled {
+    background-color: var(--bg-color-second);
+  }
+}
+
+.error {
+  border-color: var(--red);
+  background-color: var(--red-second);
+}

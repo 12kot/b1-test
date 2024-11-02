@@ -7,9 +7,10 @@ import { useHandleNavigation } from 'hooks';
 import { addItemToCart, IProduct, useAppDispatch, useAppSelector } from 'store';
 import { Button, H3, Loader, Span } from 'components';
 
-import { SVGDelete } from 'assets';
+import { IMGMail, SVGDelete } from 'assets';
 
 import styles from './styles.module.scss';
+import { useOrderModal } from 'context';
 
 interface Props {
   isOpen: boolean;
@@ -18,12 +19,14 @@ interface Props {
 
 export const Content = ({ setIsOpen, isOpen }: Props) => {
   const { t } = useTranslation(['common']);
+  const { setOrderModalOpen } = useOrderModal();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [products, setProducts] = useState<IProduct[]>([]);
 
   const { products: cartProducts } = useAppSelector((state) => state.cart);
 
+  //Апи не предоставляет эндпоинта на получение нескольких товаров. Поэтому вот
   useEffect(() => {
     if (!isOpen) return;
 
@@ -45,12 +48,23 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
     fetchProducts();
   }, [cartProducts, isOpen]);
 
+  const handleOpenOrderModal = () => {
+    setIsOpen();
+    setOrderModalOpen()
+  }
+
   return (
     <div className={styles.container}>
       <section className={styles.container_header}>
         <H3>{t('common:yourCart')}</H3>
         <Span>{t('common:nItems', { value: cartProducts.length })}</Span>
       </section>
+      {!cartProducts.length && (
+        <section className={styles.container_empty}>
+          <img loading="lazy" src={IMGMail} />
+          <p>{t('common:cartIsEmpty')}</p>
+        </section>
+      )}
       {isLoading ? (
         <Loader center />
       ) : (
@@ -60,7 +74,7 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
           ))}
         </section>
       )}
-      <Button>{t('common:placeOrder')}</Button>
+      <Button disabled={!cartProducts.length || isLoading} onClick={handleOpenOrderModal}>{t('common:placeOrder')}</Button>
     </div>
   );
 };

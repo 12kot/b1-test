@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 
 import { Routes } from 'Router';
-import { AuthProvider } from 'context';
-
 import { setItemsInCart, useAppDispatch } from 'store';
+import { AuthProvider, OrderModalProvider } from 'context';
+
 
 import './index.scss';
 
@@ -28,7 +28,9 @@ const App = () => {
 
   return (
     <AuthProvider>
-      <Routes />
+      <OrderModalProvider>
+        <Routes />
+      </OrderModalProvider>
     </AuthProvider>
   );
 };

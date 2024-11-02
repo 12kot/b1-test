@@ -1,0 +1,9 @@
+{
+  "modal": {
+    "deliveryInfo": "Delivery Information",
+    "address": "Your full address",
+    "wishes": "Wishes",
+    "email": "Email",
+    "phone": "Phone"
+  }
+}

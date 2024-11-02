@@ -21,6 +21,24 @@
     justify-content: space-between;
   }
 
+  &_empty {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto;
+
+    max-width: 300px;
+
+    img {
+      max-width: 150px;
+    }
+  }
+
   &_cards {
     display: flex;
     flex-direction: column;
