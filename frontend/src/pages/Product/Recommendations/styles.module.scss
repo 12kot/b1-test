@@ -10,19 +10,24 @@
   gap: 16px;
 
   overflow-y: auto;
-
+  
   &_list {
     display: flex;
     flex-direction: column;
     gap: 4px;
-
+    
     &__img {
       border-radius: 16px;
       overflow: hidden;
-
+      
       img {
         width: 100%;
       }
     }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    overflow-y: visible;
+    border-top: 1px solid var(--border-color);
   }
 }

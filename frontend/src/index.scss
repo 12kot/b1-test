@@ -88,12 +88,6 @@ h3 {
   font-size: 20px;
 }
 
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 a {
   color: var(--font-color);
   text-decoration: none;
@@ -101,11 +95,4 @@ a {
   &:active, &:focus, &:visited {
     color: var(--font-color);
   }
-}
-
-.clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }

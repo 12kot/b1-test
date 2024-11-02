@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-import { authApi } from './api/authApi';
-
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+
+import { productsApi, authApi } from './api';
 
 export const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(authApi.middleware);
+    return getDefaultMiddleware().concat(authApi.middleware, productsApi.middleware);
   },
 });
 

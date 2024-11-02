@@ -7,8 +7,8 @@ import React, {
   useCallback,
 } from "react";
 
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { useUserAuthMutation } from "store/api/authApi";
+import { useLocalStorage } from "hooks";
+import { useUserAuthMutation } from "store";
 
 interface IUser {
   token: string;

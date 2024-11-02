@@ -10,5 +10,11 @@
   "description": "Description",
   "yourCart": "Your shopping cart",
   "placeOrder": "Place an order",
-  "nItems": "{{value}} items"
+  "nItems": "{{value}} items",
+
+  "main": "Main",
+  "catalog": "Catalog",
+
+  "price": "$ {{price}}",
+  "fullRating": "{{rate}} ({{count}}) • {{category}}"
 }

@@ -1,16 +1,6 @@
 .container {
   grid-area: 1 / 1 / 2 / 4;
-
-  &_filters {
-    padding: 8px 32px;
-    border-bottom: 1px solid var(--border-color);
-
-    display: flex;
-    gap: var(--gap);
-
-    overflow-y: auto;
-  }
-
+  
   &_content {
     padding: 16px 32px;
     overflow-y: auto;

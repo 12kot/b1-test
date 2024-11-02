@@ -1,35 +1,27 @@
-import { B, Button, H2, ProductCard, Span } from 'components';
+import { useTranslation } from 'react-i18next';
+
+import { ICategory } from 'store';
+import { useQueryParam } from 'hooks';
+import { H2, ProductPath } from 'components';
+import { capitalizeFirstLetter } from 'utils';
+
+import { Filters } from './Filters';
+import { Products } from './Products';
 
 import styles from './styles.module.scss';
 
 export const Content = () => {
+  const { t } = useTranslation(['common']);
+  const [activeCategory, setCategory] = useQueryParam<ICategory>('c');
+
   return (
     <div className={styles.container}>
-      <section className={styles.container_filters}>
-        <Button buttonType="filter">Filter 1</Button>
-        <Button buttonType="filter">Filter 2</Button>
-        <Button buttonType="filter">Filter 3</Button>
-        <Button buttonType="filter">Filter 4</Button>
-        <Button buttonType="filter_active">Filter 5</Button>
-        <Button buttonType="filter">Filter 6</Button>
-        <Button buttonType="filter">Filter 7</Button>
-      </section>
+      <Filters activeCategory={activeCategory} setCategory={setCategory} />
+
       <section className={styles.container_content}>
-        <p>
-          <Span>
-            Main → <B>Catalog</B>
-          </Span>
-        </p>
-
-        <H2>Catalog</H2>
-
-        <div className={styles.container_content__cards}>
-          {Array(15)
-            .fill(null)
-            .map((_, i) => (
-              <ProductCard key={i} />
-            ))}
-        </div>
+        <ProductPath path={[activeCategory]} />
+        <H2>{capitalizeFirstLetter(activeCategory || t('common:catalog'))}</H2>
+        <Products activeCategory={activeCategory} />
       </section>
     </div>
   );

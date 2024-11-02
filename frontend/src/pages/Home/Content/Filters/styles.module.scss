@@ -1,0 +1,9 @@
+.container {
+  padding: 8px 32px;
+  border-bottom: 1px solid var(--border-color);
+
+  display: flex;
+  gap: var(--gap);
+
+  overflow-y: auto;
+}

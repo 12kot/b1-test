@@ -1,30 +1,34 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { IProduct } from 'store';
+import { APP_ROUTES } from 'Router';
 import { Button, H3, Span } from 'components';
+import { capitalizeFirstLetter } from 'utils';
 
 import { SVGCart, SVGStar } from 'assets';
 
 import styles from './styles.module.scss';
-import { APP_ROUTES } from 'Router';
 
-export const ProductCard = () => {
+export const ProductCard = ({ image, title, price, category, rating, id }: IProduct) => {
   const { t } = useTranslation(['common']);
 
   return (
-    <NavLink to={`${APP_ROUTES.PRODUCT}/${1}`} className={styles.container}>
-      <img
-        loading="lazy"
-        className={styles.container_img}
-        src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhXQk5DLvdRYSxeNw-1TD92VUED9p9P3Ru_A&s'}
-      />
+    <NavLink to={`${APP_ROUTES.PRODUCT}/${id}`} className={styles.container}>
+      <img loading="lazy" className={styles.container_img} src={image} />
       <section className={styles.container_info}>
-        <H3>$ 100.86</H3>
+        <H3>{t('common:price', { price })}</H3>
         <div>
-          <p>Wow Picture</p>
+          <p>{title}</p>
           <div className={styles.container_info__rating}>
             <SVGStar />
-            <Span>4.5 (77) • Man's clothes</Span>
+            <Span>
+              {t('common:fullRating', {
+                rate: rating.rate,
+                count: rating.count,
+                category: capitalizeFirstLetter(category),
+              })}
+            </Span>
           </div>
         </div>
         <Button>

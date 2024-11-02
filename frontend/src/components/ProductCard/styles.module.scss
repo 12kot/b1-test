@@ -1,7 +1,13 @@
-@import '/src/index.scss';
+.clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 .container {
   width: 100%;
+  padding: 16px;
 
   border: 1px solid var(--border-color);
   border-radius: 16px;
@@ -14,7 +20,7 @@
   transition: var(--transition);
 
   &_img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 64%;
   }
@@ -22,7 +28,6 @@
   &_info {
     height: fit-content;
 
-    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: var(--gap);

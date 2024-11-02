@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import { cx } from 'utils';
 import { useEscapeKey } from 'hooks';
 
-import { IMGmodalTiles } from 'assets';
+import { IMGModalTiles } from 'assets';
 
 import styles from "./styles.module.scss";
 
@@ -21,7 +21,7 @@ export const Modal = ({ children, isOpen, setIsOpen, className }: Props) => {
     <div className={cx(styles.container, isOpen && 'active')} onClick={setIsOpen}>
       <div className={cx(styles.container_content, className)} onClick={(e) => e.stopPropagation()}>
         {children}
-        <img src={IMGmodalTiles} loading="lazy" className={styles.container_content__bg} />
+        <img src={IMGModalTiles} loading="lazy" className={styles.container_content__bg} />
       </div>
     </div>
   );

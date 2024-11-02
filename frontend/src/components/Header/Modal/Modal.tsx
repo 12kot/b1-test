@@ -1,6 +1,6 @@
 import { RigthModal } from 'components';
 
-import { IMGtilesBottom } from 'assets';
+import { IMGTilesBottom } from 'assets';
 
 import { Content } from './Content';
 import styles from './styles.module.scss';
@@ -14,7 +14,7 @@ const AccountModal = ({ isOpen, setIsOpen }: Props) => {
   return (
     <RigthModal setIsOpen={setIsOpen} isOpen={isOpen}>
       <Content setIsOpen={setIsOpen} />
-      <img src={IMGtilesBottom} loading="lazy" className={styles.bg} />
+      <img src={IMGTilesBottom} loading="lazy" className={styles.bg} />
     </RigthModal>
   );
 };
