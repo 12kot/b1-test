@@ -19,8 +19,18 @@ export const CartSlice = createSlice({
       }
 
       state.products = [...state.products, action.payload.id];
+
+      //Из-за отсутствия бэка сохраняю локально
+      localStorage.setItem('cart', JSON.stringify([...state.products, action.payload.id]));
+    },
+
+    setItemsInCart: (state, action: PayloadAction<{ products: number[] }>) => {
+      state.products = action.payload.products;
+
+      //Из-за отсутствия бэка сохраняю локально
+      localStorage.setItem('cart', JSON.stringify(action.payload.products));
     },
   },
 });
 
-export const { addItemToCart } = CartSlice.actions;
+export const { addItemToCart, setItemsInCart } = CartSlice.actions;
