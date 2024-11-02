@@ -1,14 +1,22 @@
 import { useTranslation } from 'react-i18next';
 
-import { IProduct } from 'store';
+import { addItemToCart, IProduct, useAppDispatch, useAppSelector } from 'store';
 import { Button, H2, HR, ProductPath, Span } from 'components';
 
-import { SVGCart, SVGStar } from 'assets';
+import { SVGCart, SVGRemoveCart, SVGStar } from 'assets';
 
 import styles from './styles.module.scss';
 
-export const Content = ({ category, title, image, rating, price, description }: IProduct) => {
+export const Content = ({ category, title, image, rating, price, description, id }: IProduct) => {
   const { t } = useTranslation(['common']);
+
+  const dispatch = useAppDispatch();
+  const { products } = useAppSelector((state) => state.cart);
+  const isFavorite = products.find((v) => v === id);
+
+  const handleDelete = () => {
+    dispatch(addItemToCart({ id }));
+  };
 
   return (
     <div className={styles.container}>
@@ -36,9 +44,9 @@ export const Content = ({ category, title, image, rating, price, description }: 
           <b>{t('common:description')}</b>
           <p>{description}</p>
 
-          <Button className={styles.cart}>
-            <SVGCart />
-            {t('common:buttons.addToCart')}
+          <Button className={styles.cart} buttonType={isFavorite ? 'red' : undefined} onClick={handleDelete}>
+            {isFavorite ? <SVGRemoveCart /> : <SVGCart />}
+            {isFavorite ? t('common:buttons.removeFromCart') : t('common:buttons.addToCart')}
           </Button>
         </section>
       </div>

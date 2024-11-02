@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -6,12 +7,22 @@ import { APP_ROUTES } from 'Router';
 import { Button, H3, Span } from 'components';
 import { capitalizeFirstLetter } from 'utils';
 
-import { SVGCart, SVGStar } from 'assets';
+import { SVGCart, SVGRemoveCart, SVGStar } from 'assets';
 
 import styles from './styles.module.scss';
 
-export const ProductCard = ({ image, title, price, category, rating, id }: IProduct) => {
+interface Props extends IProduct {
+  isFavorite: boolean;
+  handleAddToCart: (id: number) => void;
+}
+
+export const ProductCard = ({ image, title, price, category, rating, id, isFavorite, handleAddToCart }: Props) => {
   const { t } = useTranslation(['common']);
+
+  const hancleClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
+    e.preventDefault();
+    handleAddToCart(id);
+  };
 
   return (
     <NavLink to={`${APP_ROUTES.PRODUCT}/${id}`} className={styles.container}>
@@ -31,9 +42,9 @@ export const ProductCard = ({ image, title, price, category, rating, id }: IProd
             </Span>
           </div>
         </div>
-        <Button>
-          <SVGCart />
-          {t('common:buttons.addToCart')}
+        <Button buttonType={isFavorite ? 'red' : undefined} onClick={(e) => hancleClick(e)}>
+          {isFavorite ? <SVGRemoveCart /> : <SVGCart />}
+          {isFavorite ? t('common:buttons.removeFromCart') : t('common:buttons.addToCart')}
         </Button>
       </section>
     </NavLink>
