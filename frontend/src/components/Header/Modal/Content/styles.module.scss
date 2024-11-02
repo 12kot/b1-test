@@ -29,31 +29,35 @@
     overflow-y: scroll;
 
     padding-right: 8px;
+
+    margin-bottom: auto;
   }
 }
 
 .card {
+  padding: 8px 12px;
+  padding-left: 0;
+
   display: flex;
   justify-content: unset;
   align-items: flex-start;
   text-align: start;
-  
+
   gap: 0;
-  padding: 0;
 
   width: 100%;
   min-height: 70px;
+  max-height: 70px;
 
   border-radius: 16px;
   border: 1px solid var(--border-color);
 
-
   overflow: hidden;
 
   &_img {
-    height: 100%!important;
-    width: 80px!important;
-    object-fit: cover;
+    height: 100% !important;
+    width: 80px !important;
+    object-fit: contain;
   }
 
   &_name {
@@ -61,11 +65,9 @@
     justify-content: space-between;
     gap: var(--gap);
     height: 100%;
+    width: 100%;
 
-    padding: 8px 12px;
-
-    p,
-    b {
+    p {
       height: fit-content;
       @extend .clamp;
     }
@@ -76,6 +78,10 @@
       justify-content: space-between;
 
       align-items: flex-end;
+
+      b {
+        text-wrap: nowrap;
+      }
 
       .delete {
         padding: 0;

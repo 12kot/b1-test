@@ -13,7 +13,7 @@ interface Props {
 const AccountModal = ({ isOpen, setIsOpen }: Props) => {
   return (
     <RigthModal setIsOpen={setIsOpen} isOpen={isOpen}>
-      <Content setIsOpen={setIsOpen} />
+      <Content setIsOpen={setIsOpen} isOpen={isOpen} />
       <img src={IMGTilesBottom} loading="lazy" className={styles.bg} />
     </RigthModal>
   );

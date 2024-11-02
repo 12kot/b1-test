@@ -41,6 +41,7 @@ export default ({ mode }: { mode: string }) => {
         components: path.resolve(__dirname, './src/components'),
         store: path.resolve(__dirname, './src/store'),
         pages: path.resolve(__dirname, './src/pages'),
+        config: path.resolve(__dirname, './src/config'),
       },
     },
   });

@@ -14,14 +14,18 @@ export const CartSlice = createSlice({
   reducers: {
     addItemToCart: (state, action: PayloadAction<{ id: number }>) => {
       if (state.products.find((v) => v === action.payload.id)) {
-        state.products = state.products.filter((v) => v !== action.payload.id);
+        const products = state.products.filter((v) => v !== action.payload.id);
+
+        state.products = products;
+        localStorage.setItem('cart', JSON.stringify(products));
         return;
       }
+      
+      const products = [...state.products, action.payload.id];
 
-      state.products = [...state.products, action.payload.id];
-
+      state.products = products;
       //Из-за отсутствия бэка сохраняю локально
-      localStorage.setItem('cart', JSON.stringify([...state.products, action.payload.id]));
+      localStorage.setItem('cart', JSON.stringify(products));
     },
 
     setItemsInCart: (state, action: PayloadAction<{ products: number[] }>) => {
