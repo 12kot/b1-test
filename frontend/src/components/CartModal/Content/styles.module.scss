@@ -101,7 +101,8 @@
         text-wrap: nowrap;
       }
 
-      .delete {
+      .delete:focus {
+        background-color: red;
         padding: 0;
       }
     }
