@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const Content = ({ setIsOpen, isOpen }: Props) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['cart']);
   const { setOrderModalOpen } = useOrderModal();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -56,13 +56,13 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
   return (
     <div className={styles.container}>
       <section className={styles.container_header}>
-        <H3>{t('common:yourCart')}</H3>
-        <Span>{t('common:nItems', { value: cartProducts.length })}</Span>
+        <H3>{t('cart:yourCart')}</H3>
+        <Span>{t('cart:nItems', { value: cartProducts.length })}</Span>
       </section>
       {!cartProducts.length && (
         <section className={styles.container_empty}>
           <img loading="lazy" src={IMGMail} />
-          <p>{t('common:cartIsEmpty')}</p>
+          <p>{t('cart:cartIsEmpty')}</p>
         </section>
       )}
       {isLoading ? (
@@ -74,7 +74,7 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
           ))}
         </section>
       )}
-      <Button disabled={!cartProducts.length || isLoading} onClick={handleOpenOrderModal}>{t('common:placeOrder')}</Button>
+      <Button disabled={!cartProducts.length || isLoading} onClick={handleOpenOrderModal}>{t('cart:placeOrder')}</Button>
     </div>
   );
 };
@@ -101,7 +101,7 @@ const Card = ({ setIsOpen, id, title, price, image }: CardProps) => {
       <div className={styles.card_name}>
         <p>{title}</p>
         <div className={styles.card_name__price}>
-          <b>{t('common:price', { price })}</b>
+          <b>{t('common:product.price', { price })}</b>
           <Button buttonType="default" className={styles.delete} onClick={(e) => handleAddToCart(e)}>
             <SVGDelete />
           </Button>

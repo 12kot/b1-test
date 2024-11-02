@@ -1,8 +1,9 @@
 import { RigthModal } from 'components';
 
+import { Content } from './Content';
+
 import { IMGTilesBottom } from 'assets';
 
-import { Content } from './Content';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
   setIsOpen: () => void;
 }
 
-const AccountModal = ({ isOpen, setIsOpen }: Props) => {
+export const CartModal = ({ isOpen, setIsOpen }: Props) => {
   return (
     <RigthModal setIsOpen={setIsOpen} isOpen={isOpen}>
       <Content setIsOpen={setIsOpen} isOpen={isOpen} />
@@ -18,5 +19,3 @@ const AccountModal = ({ isOpen, setIsOpen }: Props) => {
     </RigthModal>
   );
 };
-
-export default AccountModal;

@@ -28,13 +28,13 @@ export const ProductCard = ({ image, title, price, category, rating, id, isFavor
     <NavLink to={`${APP_ROUTES.PRODUCT}/${id}`} className={styles.container}>
       <img loading="lazy" className={styles.container_img} src={image} />
       <section className={styles.container_info}>
-        <H3>{t('common:price', { price })}</H3>
+        <H3>{t('common:product.price', { price })}</H3>
         <div>
           <p>{title}</p>
           <div className={styles.container_info__rating}>
             <SVGStar />
             <Span>
-              {t('common:fullRating', {
+              {t('common:product.fullRating', {
                 rate: rating.rate,
                 count: rating.count,
                 category: capitalizeFirstLetter(category),

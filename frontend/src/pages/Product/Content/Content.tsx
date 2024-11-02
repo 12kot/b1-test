@@ -34,14 +34,14 @@ export const Content = ({ category, title, image, rating, price, description, id
                 .map((_, i) => (
                   <SVGStar key={i} notActive={rating.rate < i + 1} />
                 ))}
-              <Span>{t('common:rating', { value: rating.count })}</Span>
+              <Span>{t('common:product.rating', { value: rating.count })}</Span>
             </div>
-            <b>{t('common:price', { price })}</b>
+            <b>{t('common:product.price', { price })}</b>
           </div>
 
           <HR />
 
-          <b>{t('common:description')}</b>
+          <b>{t('common:product.description')}</b>
           <p>{description}</p>
 
           <Button className={styles.cart} buttonType={isFavorite ? 'red' : undefined} onClick={handleDelete}>

@@ -43,7 +43,7 @@ export const OrderModal = ({ isOpen, setIsOpen }: Props) => {
           <Input
             type="email"
             disabled
-            placeholder={t('cart:modal.email')}
+            placeholder={t('common:placeholders.email')}
             name="email"
             value={formik.values.email}
             onChange={formik.handleChange}
@@ -53,7 +53,7 @@ export const OrderModal = ({ isOpen, setIsOpen }: Props) => {
           <Input
             type="phone"
             disabled
-            placeholder={t('cart:modal.phone')}
+            placeholder={t('common:placeholders.phone')}
             name="phone"
             value={formik.values.phone}
             onChange={formik.handleChange}

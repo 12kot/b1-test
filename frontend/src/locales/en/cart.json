@@ -1,9 +1,12 @@
 {
+  "yourCart": "Your shopping cart",
+  "placeOrder": "Place an order",
+  "nItems": "{{value}} items",
+  "cartIsEmpty": "Your shopping cart is empty. Come back here when you replenish it",
+
   "modal": {
     "deliveryInfo": "Delivery Information",
     "address": "Your full address",
-    "wishes": "Wishes",
-    "email": "Email",
-    "phone": "Phone"
+    "wishes": "Wishes"
   }
 }
