@@ -3,14 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import { env } from 'config';
 import { APP_ROUTES } from 'Router';
+import { useOrderModal } from 'context';
 import { useHandleNavigation } from 'hooks';
-import { addItemToCart, IProduct, useAppDispatch, useAppSelector } from 'store';
 import { Button, H3, Loader, Span } from 'components';
+import { addItemToCart, IProduct, useAppDispatch, useAppSelector } from 'store';
 
 import { IMGMail, SVGDelete } from 'assets';
 
 import styles from './styles.module.scss';
-import { useOrderModal } from 'context';
 
 interface Props {
   isOpen: boolean;
@@ -50,8 +50,8 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
 
   const handleOpenOrderModal = () => {
     setIsOpen();
-    setOrderModalOpen()
-  }
+    setOrderModalOpen();
+  };
 
   return (
     <div className={styles.container}>
@@ -74,7 +74,9 @@ export const Content = ({ setIsOpen, isOpen }: Props) => {
           ))}
         </section>
       )}
-      <Button disabled={!cartProducts.length || isLoading} onClick={handleOpenOrderModal}>{t('cart:placeOrder')}</Button>
+      <Button disabled={!cartProducts.length || isLoading} onClick={handleOpenOrderModal}>
+        {t('cart:placeOrder')}
+      </Button>
     </div>
   );
 };
@@ -89,23 +91,24 @@ const Card = ({ setIsOpen, id, title, price, image }: CardProps) => {
 
   const dispatch = useAppDispatch();
 
-  const handleAddToCart = (e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
+  const handleAddToCart = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     e.stopPropagation();
     dispatch(addItemToCart({ id }));
   };
 
   return (
-    <Button buttonType="default" className={styles.card} onClick={() => handleNavigate(`${APP_ROUTES.PRODUCT}/${id}`)}>
+    <div className={styles.card}>
+      <button onClick={() => handleNavigate(`${APP_ROUTES.PRODUCT}/${id}`)} className={styles.card_link} />
       <img loading="lazy" className={styles.card_img} src={image} />
       <div className={styles.card_name}>
         <p>{title}</p>
         <div className={styles.card_name__price}>
           <b>{t('common:product.price', { price })}</b>
-          <div tabIndex={0} className={styles.delete} onClick={(e) => handleAddToCart(e)}>
+          <Button buttonType="default" className={styles.delete} onClick={(e) => handleAddToCart(e)}>
             <SVGDelete />
-          </div>
+          </Button>
         </div>
       </div>
-    </Button>
+    </div>
   );
 };

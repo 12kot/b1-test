@@ -25,7 +25,8 @@ export const ProductCard = ({ image, title, price, category, rating, id, isFavor
   };
 
   return (
-    <NavLink to={`${APP_ROUTES.PRODUCT}/${id}`} className={styles.container}>
+    <div className={styles.container}>
+      <NavLink to={`${APP_ROUTES.PRODUCT}/${id}`} className={styles.container_link}/>
       <img loading="lazy" className={styles.container_img} src={image} />
       <section className={styles.container_info}>
         <H3>{t('common:product.price', { price })}</H3>
@@ -42,11 +43,11 @@ export const ProductCard = ({ image, title, price, category, rating, id, isFavor
             </Span>
           </div>
         </div>
-        <Button buttonType={isFavorite ? 'red' : undefined} onClick={(e) => hancleClick(e)}>
+        <Button buttonType={isFavorite ? 'red' : undefined} onClick={(e) => hancleClick(e)} className={styles.container_favorite}>
           {isFavorite ? <SVGRemoveCart /> : <SVGCart />}
           {isFavorite ? t('common:buttons.removeFromCart') : t('common:buttons.addToCart')}
         </Button>
       </section>
-    </NavLink>
+    </div>
   );
 };

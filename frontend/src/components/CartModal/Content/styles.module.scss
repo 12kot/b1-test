@@ -53,6 +53,8 @@
 }
 
 .card {
+  position: relative;
+
   padding: 8px 12px;
   padding-left: 0;
 
@@ -71,6 +73,17 @@
   border: 1px solid var(--border-color);
 
   overflow: hidden;
+
+  &_link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+  }
 
   &_img {
     height: 100% !important;
@@ -101,8 +114,8 @@
         text-wrap: nowrap;
       }
 
-      .delete:focus {
-        background-color: red;
+      .delete {
+        z-index: 10;
         padding: 0;
       }
     }
